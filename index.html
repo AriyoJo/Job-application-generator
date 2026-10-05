@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Application Letter Generator</title>
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">PERSONAL WORKSPACE</p>
+          <h1>Job Application Letter Generator</h1>
+          <p class="subtitle">Buat surat lamaran kerja siap cetak.</p>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <section class="panel form-panel">
+          <h2>Informasi lamaran</h2>
+          <p class="muted">Ubah bagian yang berbeda untuk setiap lamaran.</p>
+
+          <form id="letter-form">
+            <label for="company">Nama perusahaan</label>
+            <input
+              id="company"
+              type="text"
+              placeholder="Nama perusahaan"
+              required
+            />
+
+            <label for="position">Posisi yang dilamar</label>
+            <input
+              id="position"
+              type="text"
+              placeholder="Contoh: Operator Produksi"
+              required
+            />
+
+            <label for="date">Tanggal surat</label>
+            <input id="date" type="date" required />
+
+            <button type="submit">Perbarui surat</button>
+          </form>
+
+          <div class="profile-section">
+            <h2>Profil pelamar</h2>
+            <p class="muted">
+              Simpan beberapa profil dan pilih profil yang akan digunakan untuk
+              surat.
+            </p>
+
+            <label for="profile-select">Pilih profil</label>
+            <select id="profile-select">
+              <option value="">Memuat profil...</option>
+            </select>
+
+            <form id="profile-form">
+              <label for="profile-name">Nama profil</label>
+              <input
+                id="profile-name"
+                type="text"
+                placeholder="Contoh: Profil utama"
+                required
+              />
+
+              <label for="full-name">Nama lengkap</label>
+              <input id="full-name" type="text" required />
+
+              <label for="birth-place">Tempat lahir</label>
+              <input id="birth-place" type="text" />
+
+              <label for="birth-date">Tanggal lahir</label>
+              <input id="birth-date" type="date" />
+
+              <label for="education">Pendidikan terakhir</label>
+              <input id="education" type="text" />
+
+              <label for="address">Alamat</label>
+              <textarea id="address" rows="2"></textarea>
+
+              <label for="phone">Nomor telepon</label>
+              <input id="phone" type="tel" />
+
+              <label for="email">Email</label>
+              <input id="email" type="email" />
+
+              <button id="save-profile-button" type="submit">
+                Simpan profil
+              </button>
+
+              <button
+                id="new-profile-button"
+                class="secondary-button"
+                type="button"
+              >
+                Profil baru
+              </button>
+
+              <button
+                id="delete-profile-button"
+                class="secondary-button"
+                type="button"
+              >
+                Hapus profil
+              </button>
+            </form>
+          </div>
+        </section>
+
+        <section class="panel preview-panel">
+          <div class="preview-heading">
+            <div>
+              <h2>Pratinjau surat</h2>
+              <p class="muted">Format A4, siap dicetak.</p>
+            </div>
+            <span class="document-label">A4</span>
+          </div>
+
+          <article class="letter" id="letter-preview">
+            <h1 class="letter-title">SURAT LAMARAN KERJA</h1>
+
+            <div class="recipient-row">
+              <div class="recipient">
+                <div>Kepada Yth.</div>
+                <div>HRD Manager</div>
+                <div id="preview-company">[Nama Perusahaan]</div>
+              </div>
+              <div class="letter-date" id="preview-date"></div>
+            </div>
+
+            <p class="subject">Perihal : Surat Lamaran Kerja</p>
+
+            <p class="opening">
+              Dengan hormat,<br />
+              Saya yang bertanda tangan di bawah ini:
+            </p>
+
+            <div class="identity">
+              <div class="identity-row">
+                <span>Nama</span><span>:</span>
+                <span id="preview-full-name">[Nama Lengkap]</span>
+              </div>
+
+              <div class="identity-row">
+                <span>Tempat, Tanggal Lahir</span><span>:</span>
+                <span id="preview-birth">[Tempat, Tanggal Lahir]</span>
+              </div>
+
+              <div class="identity-row">
+                <span>Pendidikan Terakhir</span><span>:</span>
+                <span id="preview-education">[Pendidikan Terakhir]</span>
+              </div>
+
+              <div class="identity-row">
+                <span>Alamat Rumah</span><span>:</span>
+                <span id="preview-address">[Alamat]</span>
+              </div>
+
+              <div class="identity-row">
+                <span>No. Telepon</span><span>:</span>
+                <span id="preview-phone">[Nomor Telepon]</span>
+              </div>
+            </div>
+
+            <p class="letter-paragraph">
+              Dengan ini mengajukan permohonan kepada Bapak/Ibu, sekiranya dapat
+              menerima saya menjadi
+              <strong id="preview-position">[Posisi Pekerjaan]</strong>
+              di <strong id="preview-company-body">[Nama Perusahaan]</strong>.
+              Saya mempunyai kesehatan yang baik, loyalitas tinggi, jujur, ulet,
+              cepat memahami bidang baru yang sedang dipelajari/dikerjakan,
+              motivasi tinggi dan bersedia ditempatkan di bagian manapun sesuai
+              kebutuhan perusahaan.
+            </p>
+
+            <p class="letter-paragraph">
+              Saya berharap diberikan kesempatan untuk mengikuti proses seleksi
+              dan wawancara guna menjelaskan lebih lanjut kontribusi yang bisa
+              saya berikan kepada perusahaan. Atas perhatian dan kesempatan yang
+              diberikan, saya ucapkan terima kasih.
+            </p>
+
+            <div class="closing">
+              <strong>Hormat saya,</strong>
+              <p class="signature" id="preview-signature">[Nama Lengkap]</p>
+            </div>
+
+            <div class="footer-decoration" aria-hidden="true">
+              <div class="footer-light"></div>
+              <div class="footer-mid"></div>
+              <div class="footer-dark"></div>
+            </div>
+          </article>
+
+          <div class="document-actions">
+            <button id="print-button" type="button">Print</button>
+
+            <button id="save-pdf-button" class="secondary-button" type="button">
+              Simpan PDF
+            </button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="/src/renderer.js"></script>
+  </body>
+</html>
